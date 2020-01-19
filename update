@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euEv
+
+version=$(curl -s https://gitlab.com/AuroraOSS/AuroraServices/-/releases.json | jq -r '.[0].tag')
+apk_url=$(curl -s https://gitlab.com/AuroraOSS/AuroraServices/-/releases.json | jq -r '.[0].description' | md2html | nokogiri -e 'puts "https://gitlab.com/AuroraOSS/AuroraServices#{$_.css("a").find{|a|a["href"] =~ /^\/.*\/AuroraServices-v[0-9.]*\.apk$/}["href"]}"')
+xml_url="https://gitlab.com/AuroraOSS/AuroraServices/raw/${version}/app/src/main/assets/permissions_com.aurora.services.xml"
+
+cd AuroraServices
+rm -f "${xml_url##*/}"
+wget -c "$apk_url" "$xml_url"
+sed -i "s/-v[0-9.]*\.apk\$/-v${version}.apk/" Android.mk
