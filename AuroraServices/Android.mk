@@ -9,8 +9,8 @@ LOCAL_SRC_FILES := $(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := AuroraServer
-LOCAL_SRC_FILES := AuroraServer-v1.0.5.apk
+LOCAL_MODULE := AuroraServices
+LOCAL_SRC_FILES := AuroraServices-v1.0.5.apk
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := APPS
 LOCAL_PRIVILEGED_MODULE := true
