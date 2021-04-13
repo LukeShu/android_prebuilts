@@ -10,7 +10,7 @@ include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := AuroraServices
-LOCAL_SRC_FILES := AuroraServices-v1.0.6.apk
+LOCAL_SRC_FILES := AuroraServices_v1.1.1.apk
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := APPS
 LOCAL_PRIVILEGED_MODULE := true
